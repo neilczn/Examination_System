@@ -94,10 +94,10 @@ public class StudentServiceImplTest {
 
     @Test
     public void findById() throws Exception {
-        StudentService studentService = (StudentService) applicationContext.getBean("studentService");
+        StudentService studentService = (StudentService) applicationContext.getBean("studentServiceImpl");
 
         Student student = studentService.findById(10001);
-        System.out.println();
+        System.out.println(student);
     }
 
     @Test

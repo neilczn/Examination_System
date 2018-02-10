@@ -1,6 +1,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+request.setAttribute("basePath",basePath); 
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,10 +12,10 @@
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!-- 引入bootstrap -->
-	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="${basePath}css/bootstrap.min.css">
 	<!-- 引入JQuery  bootstrap.js-->
-	<script src="/js/jquery-3.2.1.min.js"></script>
-	<script src="/js/bootstrap.min.js"></script>
+	<script src="${basePath}js/jquery-3.2.1.min.js"></script>
+	<script src="${basePath}js/bootstrap.min.js"></script>
 </head>
 <body>
 	<!-- 顶栏 -->
@@ -28,7 +32,7 @@
 						</div>
 				    </div>
 				    <div class="panel-body">
-						<form class="form-horizontal" role="form" action="/admin/addTeacher" id="editfrom" method="post">
+						<form class="form-horizontal" role="form" action="${basePath}admin/addTeacher" id="editfrom" method="post">
 							  <div class="form-group">
 							    <label for="inputEmail3" class="col-sm-2 control-label">工号</label>
 							    <div class="col-sm-10">

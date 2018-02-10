@@ -1,14 +1,37 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+<%
+//${pageContext.request.contextPath}
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+request.setAttribute("basePath",basePath); 
+%>
+
 <!DOCTYPE html>
 <html>
 <head>
 	<title></title>
+	
+	<base href="<%=basePath %>" />
+	
+	<meta charset="UTF-8" />
+    <meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">    
+	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+	
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	
+	
 	<!-- 引入bootstrap -->
-	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="<%=basePath%>css/bootstrap.min.css">
 	<!-- 引入JQuery  bootstrap.js-->
-	<script src="/js/jquery-3.2.1.min.js"></script>
-	<script src="/js/bootstrap.min.js"></script>
+	<script src="${basePath}js/jquery-3.2.1.min.js"></script>
+	<script src="${basePath}js/bootstrap.min.js"></script>
+	
+	
+	
 	<style type="text/css">
 	body{
 	   background: url(images/a.jpg)repeat;
@@ -28,7 +51,7 @@
 		<div class="row" style="margin-top: 280px; ">
 			<div class="col-md-4"></div>
 			<div class="col-md-4" id="login-box">
-				<form class="form-horizontal" role="form" action="/login" id="from1" method="post">
+				<form class="form-horizontal" role="form" action="${pageContext.request.contextPath}/login" id="from1" method="post">
 				  <div class="form-group">
 				    <label for="firstname" class="col-sm-3 control-label">用户id</label>
 				    <div class="col-sm-9">

@@ -45,3 +45,5 @@ target/
 *.ipr
 *.iml
 *.iws
+/bin/
+/.classpath
